@@ -1,0 +1,13 @@
+#!/opt/local/Library/Frameworks/Python.framework/Versions/2.7/Resources/Python.app/Contents/MacOS/Python
+
+import sys
+sys.path[0:0] = [
+  '/Users/bdbaddog/.buildout/eggs/mr.developer-1.17-py2.7.egg',
+  '/Users/bdbaddog/.buildout/eggs/zc.buildout-1.4.4-py2.7.egg',
+  '/Users/bdbaddog/.buildout/eggs/distribute-0.6.14-py2.7.egg',
+  ]
+
+import mr.developer.develop
+
+if __name__ == '__main__':
+    mr.developer.develop.develop()
