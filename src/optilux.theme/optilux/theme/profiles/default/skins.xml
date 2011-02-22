@@ -38,7 +38,7 @@
        Note: insert-before (and -after) accepts the value "*" which means
        "all".
        -->
- <skin-path name="Optilux Theme" based-on="Plone Default">
+ <skin-path name="Optilux Theme" based-on="Sunburst Theme">
   <layer name="optilux_theme_custom_images"
      insert-after="custom"/>
   <layer name="optilux_theme_custom_templates"
