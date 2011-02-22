@@ -34,6 +34,8 @@ def setup_optilux_policy():
     # the ZCML
     ztc.installPackage('optilux.policy')
 
+    ztc.installPackage('optilux.theme')
+
 # The order here is important: We first call the (deferred) function
 # which installs the products we need for the Optilux package. Then,
 # we let PloneTestCase setup this product on installation.

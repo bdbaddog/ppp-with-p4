@@ -19,12 +19,13 @@ def disableDocument(portal):
 
 
 
+
 def importVarious(context):
     """Miscellaneous steps import handler
     """
     if context.readDataFile('optilux.policy_various.txt') is None:
         return
-#    import pdb; pdb.set_trace()
+
 
     portal = context.getSite()
     setupGroups(portal)

@@ -48,6 +48,12 @@ class TestSetup(OptiluxPolicyTestCase):
     def test_richdocument_renamed_to_page(self):
         rich_document_fti=getattr(self.types,'RichDocument')
         self.assertEquals("Web Page", rich_document_fti.title)
+
+    def test_theme_installed(self):
+        skins=getToolByName(self.portal,'portal_skins')
+        layer = skins.getSkinPath('Optilux Theme')
+        self.failUnless('optilux_theme_custom_templates' in layer)
+        self.assertEquals('Optilux Theme', skins.getDefaultSkin())
         
 
 

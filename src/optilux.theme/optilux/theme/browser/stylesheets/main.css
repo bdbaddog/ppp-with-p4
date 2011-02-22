@@ -1,0 +1,6 @@
+/* Stylesheet for the 'Optilux Theme' Plone theme */
+h1, h2 { 
+  border: none;
+  border-bottom: solid transparent 1px;
+}
+
