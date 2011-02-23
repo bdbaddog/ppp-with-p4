@@ -20,14 +20,14 @@ borderStyle:string=solid
 borderStyleAnnotations:string=dashed
 
 globalBorderColor:string=#8cacbb
-globalBackgroundColor:string=#dee7ec
+globalBackgroundColor:string=#f0f0f0
 globalFontColor:string=#436976
 
 headingFontFamily:string="Lucida Grande", Verdana, Lucida, Helvetica, Arial, sans-serif
 
-contentViewBorderColor:string=#74ae0b
-contentViewBackgroundColor:string=#cde2a7
-contentViewFontColor:string=#578308
+contentViewBorderColor:string=transparent
+contentViewBackgroundColor:string=#f0f0f0
+contentViewFontColor:string=#fe9900
 
 inputFontColor:string=Black
 
@@ -43,5 +43,5 @@ discreetColor:string=#76797c
 helpBackgroundColor:string=#ffffe1
 
 portalMinWidth:string=70em
-columnOneWidth:string=16em
+columnOneWidth:string=181px
 columnTwoWidth:string=16em

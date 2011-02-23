@@ -5,39 +5,64 @@
 
 <object>
 
-  <!-- Viewlets keep the same ordering than the default skin ('Plone Default'
-       out of the box).
-       You can specify skinname="*" if you want changes apply for all skins.
-       Using "True"" for the 'make-default' parameter will make the 'skinname'
-       value set as default skinname. Means the name of the skin that would be
-       used in case the viewlets ordering was not specified for the currently
-       used skin.
-       The 'based-on' attribute lets you inherit the viewlets ordering from an
-       existing skin.
-       -->
-  <order manager="plone.portalfooter" skinname="Optilux Theme"
-         based-on="Plone Default">
-    <!-- The definition of a viewlet accepts these parameters:
-         - name: quite self explanatory, the name of the viewlet.
-         - insert-before: name of the viewlet before which it must be added or
-           moved.
-         - insert-after: name of the viewlet after which it must be added
-           or moved.
-         - remove: supported but rarely needed, removes the viewlet from the
-           ordering list (doesn't mean that it hides the viewlet).
-         Note: insert-before and -after accept the value "*" which means
-         "all".
-         -->
-<!-- EXAMPLE (UNCOMMENT TO MAKE AVAILABLE):
-    <viewlet name="optilux.someviewlet"
-             insert-before="*" />
--->
-  </order>
 
-  <hidden manager="plone.portalheader" skinname="Optilux Theme">
-<!-- EXAMPLE (UNCOMMENT TO MAKE AVAILABLE):
+  <!-- Top of the page -->
+  <order manager="plone.portaltop" skinname="Optilux Theme" based-on="Sunburst Theme">
+    <viewlet name="plone.header" />
+  </order>
+  
+  <hidden manager="plone.portaltop" skinname="Optilux Theme">
+    <viewlet name="plone.app.i18n.locales.languageselector" />
+    <viewlet name="plone.path_bar" />
+  </hidden>
+  
+  <!-- Header - contained within plone.portaltop -->
+  <order manager="plone.portalheader" skinname="Optilux Theme" based-on="Sunburst Theme">
+    <viewlet name="plone.skip_links" />
+    <viewlet name="plone.site_actions" />
+    <viewlet name="plone.logo" />
     <viewlet name="plone.global_sections" />
--->
+  </order>
+  
+  <hidden manager="plone.portalheader" skinname="Optilux Theme">
+    <viewlet name="plone.searchbox" />
+    <viewlet name="plone.personal_bar" />
+  </hidden>
+  
+  <!-- Above content -->
+  <order manager="plone.contentviews" skinname="Optilux Theme" based-on="Sunburst Theme">
+    <viewlet name="optilux.path_bar" />
+    <viewlet name="optilux.personal_bar" />
+    <viewlet name="plone.contentviews" />
+    <viewlet name="plone.contentactions" />
+  </order>
+  
+  <!-- Below the title of a document -->
+  <hidden manager="plone.belowcontenttitle" skinname="Optilux Theme">
+      <viewlet name="plone.belowcontenttitle.documentbyline" />
+  </hidden>
+
+  <!-- Above the content -->
+  <hidden manager="plone.abovecontent" skinname="Optilux Theme">
+      <viewlet name="plone.presentation" />
+      <viewlet name="plone.path_bar" />
+  </hidden>
+
+  
+  <!-- Above the body of a document -->
+  <hidden manager="plone.abovecontentbody" skinname="Optilux Theme">
+      <viewlet name="plone.presentation" />
+      <viewlet name="plone.path_bar" />
+  </hidden>
+  
+  <!-- Footer -->
+  <order manager="plone.portalfooter" skinname="Optilux Theme" based-on="Sunburst Theme">
+    <viewlet name="optilux.footer" />
+    <viewlet name="plone.colophon" />
+  </order>
+  
+  <hidden manager="plone.portalfooter" skinname="Optilux Theme">
+    <viewlet name="plone.footer" />
   </hidden>
 
 </object>

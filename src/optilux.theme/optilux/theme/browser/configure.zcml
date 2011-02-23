@@ -14,19 +14,75 @@
       type="zope.publisher.interfaces.browser.IBrowserSkinType"
       name="Optilux Theme"
       />
+
+
+    <!-- 
+        Override the dashboard view (we want to make sure it doesn't 
+        blank out the left column). This is copied from 
+        plone.app.layout.dashboard and plone.app.portlets.browser, with the 
+        addition of the layer attribute.
+      -->
+    <browser:page
+        for="Products.CMFCore.interfaces.ISiteRoot"
+        name="dashboard"
+        permission="plone.app.portlets.ManageOwnPortlets"
+        class="plone.app.layout.dashboard.dashboard.DashboardView"
+        template="templates/dashboard.pt"
+        layer=".interfaces.IThemeSpecific"
+        />
+        
+    <browser:page
+        for="Products.CMFCore.interfaces.ISiteRoot"
+        name="manage-dashboard"
+        permission="plone.app.portlets.ManageOwnPortlets"
+        class="plone.app.portlets.browser.manage.ManageDashboardPortlets"
+        template="templates/manage-dashboard.pt"
+        layer=".interfaces.IThemeSpecific"
+        />
+
+
+
+   <!-- Re-register viewlets which are normally at the top of the
+         portal, adding them to the "content views" viewlet manager,
+         at the top of the main content area. We then use GenericSetup
+         (profiles/default/viewlets.xml) to hide the viewlets in their
+         default location and order them properly in this new location.
+       -->
+    <!-- The breadcrumbs -->
+    <browser:viewlet
+        name="optilux.path_bar"
+        manager="plone.app.layout.viewlets.interfaces.IContentViews"
+        layer=".interfaces.IThemeSpecific"
+        class=".viewlets.PathBarViewlet"
+        permission="zope2.View" 
+        />
+
   
   <!-- Viewlets registration -->
-  <!-- EXAMPLE (UNCOMMENT TO MAKE AVAILABLE):
   <browser:viewlet
-      name="optilux.someviewlet"
-      manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
-      class=".viewlets.MyViewlet"
+      name="optilux.personal_bar"
+      manager="plone.app.layout.viewlets.interfaces.IContentViews"
       layer=".interfaces.IThemeSpecific"
+      class="plone.app.layout.viewlets.common.PersonalBarViewlet"
       permission="zope2.View"
-      />
-  -->
+   />
+
+  <browser:viewlet
+      name="optilux.footer"
+      manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+      layer=".interfaces.IThemeSpecific"
+      template="templates/footer.pt"
+      permission="zope2.View"
+   />
+
 
   <!-- Zope 3 browser resources -->
+  <!--
+      Override the dashboard view (we want to make sure it doesn't
+      blank out the left column). This is copied from
+      plone.app.layout.dashboard and plone.app.portlets.browser, with the
+      addition of the layer attribute.
+    -->
 
   <!-- Resource directory for images
     See optilux/theme/browser/images/README.txt
