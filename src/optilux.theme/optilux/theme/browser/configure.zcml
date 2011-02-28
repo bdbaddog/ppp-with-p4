@@ -1,8 +1,13 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="optilux.theme">
 
+    <!-- We are customizing the search portlet, so make sure that it has
+         been properly loaded *before* the registrations below are effected.
+      -->
+    <include package="plone.app.portlets" />
   <!-- 'Optilux Theme' Zope 3 browser layer
     Register views, viewlets and resources for this layer to make sure
     they only apply to the 'Optilux Theme' theme.
@@ -38,6 +43,15 @@
         class="plone.app.portlets.browser.manage.ManageDashboardPortlets"
         template="templates/manage-dashboard.pt"
         layer=".interfaces.IThemeSpecific"
+        />
+
+    <!-- 
+        Override the template for the search portlet 
+      -->
+    <plone:portletRenderer
+        portlet="plone.app.portlets.portlets.search.ISearchPortlet"
+        layer=".interfaces.IThemeSpecific"
+        template="templates/search_portlet.pt"
         />
 
 

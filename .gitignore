@@ -1,5 +1,4 @@
-*.pyc
-BPPython
+bin
 eggs
 var
 parts
