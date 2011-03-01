@@ -19,5 +19,18 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
   <!-- -*- extra stuff goes here -*- -->
+  <genericsetup:importStep
+      name="name"
+      title="title"
+      description="description"
+      handler="Products.GenericSetup.tests.test_zcml.dummy_importstep_handler">
+<!--
+ Not clear that this is really needed as it works with depencendies in just profiles/default/metadata.xml
+
+    <depends name="Products.RichDocument"/>
+    <depends name="optilux.theme"/>
+-->
+  </genericsetup:importStep>
   
+
 </configure>
