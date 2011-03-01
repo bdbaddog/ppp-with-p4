@@ -1,5 +1,11 @@
 from Products.CMFCore.utils import getToolByName
 
+def loadRichDocument(portal):
+    qi = getToolByName(portal, 'portal_quickinstaller')
+    if not qi.isProductInstalled('Products.RichDocument'):
+        qi.installProduct('Products.RichDocument')
+ 
+
 def setupGroups(portal):
     acl_users=getToolByName(portal,'acl_users')
     if not acl_users.searchGroups(name='Staff'):
@@ -28,6 +34,7 @@ def importVarious(context):
 
 
     portal = context.getSite()
+    loadRichDocument(portal)
     setupGroups(portal)
     renameRichDocument(portal)
     disableDocument(portal)
